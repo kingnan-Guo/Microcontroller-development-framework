@@ -4,14 +4,20 @@ cmake_minimum_required(VERSION 3.28.1)
 
 # 项目名称，同时会自动生成 PROJECT_NAME 变量，
 # 使用${PROJECT_NAME} 即可访问到 Microcontroller-development-framework。
-project(MDF)
+project(Mdf VERSION 1.0.0)
+message(STATUS "${PROJECT_NAME} 项目已创建")
 
 # set(CMAKE_C_COMPILER gcc)
 # set(CMAKE_CXX_COMPILER g++)
+# 设置编译选项
+# SET(CMAKE_C_STANDARD 11)
+# SET(CMAKE_C_STANDARD_REQUIRED True)
+# SET(CMAKE_CXX_STANDARD 11)
+# SET(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # TARGET_LINK_LIBRARIES(MDF lib) #链接的库
 # 添加头文件路径
-INCLUDE_DIRECTORIES(include)
+# INCLUDE_DIRECTORIES(include)
 
 
 # 添加源代码文件夹 src，并生成可执行文件到 bin 文件夹
@@ -23,11 +29,22 @@ ADD_SUBDIRECTORY(lib libBin)  #添加子目录
 
 
 
+message(STATUS "${PROJECT_BINARY_DIR} --- 项目build路径")
+message(STATUS "${PROJECT_SOURCE_DIR} --- 项目源代码路径")
+
+
+configure_file(
+    "${PROJECT_SOURCE_DIR}/config.h.in"
+    "${PROJECT_BINARY_DIR}/config.h")
+
+#制定头文件 位置
+# PUBLIC  PRIVATE I
+target_include_directories(Mdf PUBLIC ${PROJECT_BINARY_DIR})
 
 
 
-if(CMAKE_SYSTEM_NAME MATCHES "Linux")  
-    message(STATUS "Running on Linux操作系统")  
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+    message(STATUS "Running on Linux操作系统")
     # 在这里添加适用于Linux的操作系统的特定配置  
 elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")  
     message(STATUS "Running on Windows操作系统 -------------------------")  
@@ -49,6 +66,10 @@ endif()
 
 
 
+
+
+
+
 ############################################
 # 安装规则
 
@@ -64,7 +85,6 @@ INSTALL(PROGRAMS runProject.sh DESTINATION bin)
 # doc 这个目录安装到目标路径下
 # doc/   这个目录下的内容安装到目标路径下
 INSTALL(DIRECTORY doc/ DESTINATION share/doc/${PROJECT_NAME})
-
 #安装可执行程序
 # INSTALL(TERGETS mdf DEFINITIONS bin)
 

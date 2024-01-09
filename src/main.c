@@ -1,10 +1,12 @@
 #include <stdio.h>
 // #include "../lib/print.h"
 // #include <print/print.h>
+#include "config.h"
 
 int main()
 {
     printf("Hello World 123123");
+    printf("mdf_Version_MAJOR %d ",mdf_Version_MAJOR)
     // print();
     /* code */
     return 0;

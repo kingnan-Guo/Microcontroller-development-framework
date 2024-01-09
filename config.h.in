@@ -1,0 +1,3 @@
+#define mdf_Version_MAJOR ${mdf_Version_MAJOR}
+#define mdf_Version_MINOR "@mdf_Version_MINOR@"
+#define mdf_Version_PATCH ${mdf_Version_PATCH}

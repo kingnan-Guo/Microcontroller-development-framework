@@ -35,3 +35,10 @@ cmake --install .
 
 cmake ..
 cmake --build . 
+
+
+
+
+
+####
+cmake -B ./build -S . -DCMAKE_TOOLCHAIN_FILE="[vcpkg-root]/scripts/buildsystems/vcpkg.cmake"
