@@ -11,3 +11,27 @@ lib         用于存放.a/.so的库文件
 modules     用干存放功能模块的代码文件
 resource    用干存放图片等资源文件
 src         用于存放main源码文件
+
+
+### win 编译
+./build
+cmake ..  -G "MinGW Makefiles"
+
+mkdir build
+cd build
+cmake ..
+cmake --build . 
+
+
+#配置 路径
+cmake -D CMAKE_INSTALL_PREFIX=D:\vcpkg\scripts\buildsystems\vcpkg.cmake ..
+cmake -D CMAKE_INSTALL_PREFIX=D:\vcpkg\scripts\MDF  ..
+
+cmake --install .
+
+### linux 编译
+
+### Mac 编译
+
+cmake ..
+cmake --build . 
