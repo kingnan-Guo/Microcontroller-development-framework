@@ -63,7 +63,7 @@ vcpkg install library_name
 这个版本中 
 1、安装了 vcpkg 放到了   /usr/local/vspkg 目录下
 <!-- 2、安装了 cmake 放到了   /usr/local/vspkg/scripts/buildsystems 目录下 -->
-2、brew 安装了  pkg-config : pkg-config
+2、brew 安装了  pkg-config : brew install pkg-config
 3、vcpkg install  fmt
 4、vcpkg.json 配置了信息 但是 "builtin-baseline": "c9919121dde6f61c0436adda94624636e041226b", 会导致安装 报错
 5、首选项 配置
