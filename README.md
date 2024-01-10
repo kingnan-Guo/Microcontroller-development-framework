@@ -75,7 +75,7 @@ vcpkg install library_name
 ###### mac
 
 这个版本中  
-1、安装了 vcpkg 放到了   /usr/local/vspkg 目录下
+1、安装了 vcpkg 放到了   /usr/local/vspkg 目录下; 修改了 vcpkg 下 bootstrap-vcpkg.sh 因为 vspkg-macOs 无法下载下来；然后是在网上找了 vspkg-macOs  资源 修改 .sh内的判断 如果下载 vspkg-macOs 那么直接跳过
 <!-- 2、安装了 cmake 放到了   /usr/local/vspkg/scripts/buildsystems 目录下 -->
 2、brew 安装了  pkg-config : brew install pkg-config
 3、vcpkg install  fmt
@@ -84,7 +84,6 @@ vcpkg install library_name
 "cmake.configureSettings": {
     "CMAKE_TOOLCHAIN_FILE": "/usr/local/vspkg/scripts/buildsystems/vcpkg.cmake",//"/Users/kingnan/.espressif/tools/cmake/3.24.0/CMake.app/Contents/share/cmake-3.24/Modules/Platform/ESP32.cmake"
 }
-
 6、 shift+commad/ctrl +p 搜索 ：C/C++ 配置 生成 c_cpp_properties.json
 7、 
 
