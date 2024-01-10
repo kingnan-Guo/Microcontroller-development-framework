@@ -73,7 +73,7 @@ cmake --build .
 2、brew 安装了  pkg-config : brew install pkg-config
 3、vcpkg install    执行了这个命令 vcpkg 自己安装了 vcpkg 需要的库
 4、 vcpkg install  fmt   执行这个 用于 安装  fmt
-5、vcpkg.json 配置了信息 但是 "builtin-baseline": "c9919121dde6f61c0436adda94624636e041226b", 会导致安装 报错
+5、vcpkg.json 配置了信息 但是 "builtin-baseline": "c9919121dde6f61c0436adda94624636e041226b", overrids:[{"name": "fmt", "version": '7.1.0'}]  会导致安装 报错
 6、首选项 配置
 "cmake.configureSettings": {
     "CMAKE_TOOLCHAIN_FILE": "/usr/local/vspkg/scripts/buildsystems/vcpkg.cmake",//"/Users/kingnan/.espressif/tools/cmake/3.24.0/CMake.app/Contents/share/cmake-3.24/Modules/Platform/ESP32.cmake"
