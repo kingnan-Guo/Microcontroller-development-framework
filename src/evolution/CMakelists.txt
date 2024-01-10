@@ -4,9 +4,9 @@ ADD_LIBRARY(evolution "")
 
 target_sources(evolution 
 PRIVATE
-    evolution.cpp
+    evolution.c
 PUBLIC
-    evolution.hpp
+    evolution.h
 )
 
 target_include_directories(evolution

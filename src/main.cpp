@@ -1,8 +1,10 @@
 #include <iostream>
 #include <fmt/format.h>
 #include <print.hpp>
-#include <evolution.hpp>
-
+// #include <evolution.h>
+extern "C" {
+    #include <evolution.h>
+}
 
 int main(){
     std::cout << fmt::format("Hello, {}!", "world") << std::endl;
