@@ -11,6 +11,9 @@ lib         用于存放.a/.so的库文件
 modules     用干存放功能模块的代码文件
 resource    用干存放图片等资源文件
 src         用于存放main源码文件
+Drivers     
+compile     用于放置 交叉编译的 依赖文件
+device      设备 文件
 
 
 ### win 编译

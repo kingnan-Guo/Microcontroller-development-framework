@@ -31,3 +31,5 @@ INSTALL(FILES print.h DESTINATION include/print)
 INSTALL(TARGETS print print_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
 
 
+# ADD_LIBRARY(print print.h)
+

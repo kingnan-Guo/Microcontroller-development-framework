@@ -22,7 +22,7 @@ message(STATUS "${PROJECT_NAME} 项目已创建")
 
 # 添加源代码文件夹 src，并生成可执行文件到 bin 文件夹
 ADD_SUBDIRECTORY(src bin)
-ADD_SUBDIRECTORY(lib libBin)  #添加子目录
+ADD_SUBDIRECTORY(lib)  #添加子目录
 # AUX_SOURCE_DIRECTORY(. SRC_LIST) #把当前目录下所有源代码文件名加入变量SRC_LIST
 
 
@@ -35,11 +35,28 @@ message(STATUS "${PROJECT_SOURCE_DIR} --- 项目源代码路径")
 
 configure_file(
     "${PROJECT_SOURCE_DIR}/config.h.in"
-    "${PROJECT_BINARY_DIR}/config.h")
+    "${PROJECT_BINARY_DIR}/config.h"
+)
 
-#制定头文件 位置
-# PUBLIC  PRIVATE I
-target_include_directories(Mdf PUBLIC ${PROJECT_BINARY_DIR})
+
+
+# # 添加链接库  连接src下的main.c 与 lib文件夹下的print.cpp  
+# target_link_libraries(${PROJECT_NAME} PUBLIC lib)
+# # target_link_libraries(mdf PUBLIC libBin)
+
+# # target_link_libraries(mdf PUBLIC ${PROJECT_BINARY_DIR}/libBin/lib)
+# # target_link_libraries(mdf PUBLIC lib)
+
+
+
+
+# #制定头文件 位置
+# # PUBLIC  PRIVATE I
+# target_include_directories(mdf PUBLIC 
+#                                         ${PROJECT_BINARY_DIR}
+#                                         ${PROJECT_BINARY_DIR}/lib
+#                                         ${PROJECT_SOURCE_DIR}/lib
+#                                         )
 
 
 

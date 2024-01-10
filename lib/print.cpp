@@ -1,6 +1,15 @@
-#include <iostream>
+// #include <iostream>
+// #include "print.h"
+// void print()
+// {
+//     cout<<"Hello World!!!!!"<<endl;
+// }
+
+
+
+#include <stdio.h>
 #include "print.h"
 void print()
 {
-    cout<<"Hello World!!!!!"<<endl;
+    printf("Hello World cppp");
 }
