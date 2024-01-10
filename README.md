@@ -59,31 +59,33 @@ cmake --build .
 
 
 
-####
+#### 
 
 /usr/local/vcpkg
+# 下面这个 不好用 暂存
 cmake -B ./build -S . -DCMAKE_TOOLCHAIN_FILE="[vcpkg-root]/scripts/buildsystems/vcpkg.cmake"
 
 
-
+# vcpkg 下载 依赖包的命令
 vcpkg install library_name
 
 
 
 
-
+###### 解决问题的记录 ########
 ###### mac
 
 这个版本中  
 1、安装了 vcpkg 放到了   /usr/local/vspkg 目录下; 修改了 vcpkg 下 bootstrap-vcpkg.sh 因为 vspkg-macOs 无法下载下来；然后是在网上找了 vspkg-macOs  资源 修改 .sh内的判断 如果下载 vspkg-macOs 那么直接跳过
 <!-- 2、安装了 cmake 放到了   /usr/local/vspkg/scripts/buildsystems 目录下 -->
 2、brew 安装了  pkg-config : brew install pkg-config
-3、vcpkg install  fmt
-4、vcpkg.json 配置了信息 但是 "builtin-baseline": "c9919121dde6f61c0436adda94624636e041226b", 会导致安装 报错
-5、首选项 配置
+3、vcpkg install    执行了这个命令 vcpkg 自己安装了 vcpkg 需要的库
+4、 vcpkg install  fmt   执行这个 用于 安装  fmt
+5、vcpkg.json 配置了信息 但是 "builtin-baseline": "c9919121dde6f61c0436adda94624636e041226b", 会导致安装 报错
+6、首选项 配置
 "cmake.configureSettings": {
     "CMAKE_TOOLCHAIN_FILE": "/usr/local/vspkg/scripts/buildsystems/vcpkg.cmake",//"/Users/kingnan/.espressif/tools/cmake/3.24.0/CMake.app/Contents/share/cmake-3.24/Modules/Platform/ESP32.cmake"
 }
-6、 shift+commad/ctrl +p 搜索 ：C/C++ 配置 生成 c_cpp_properties.json
-7、 
+7、 shift+commad/ctrl +p 搜索 ：C/C++ 配置 生成 c_cpp_properties.json
+8、 
 
