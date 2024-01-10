@@ -1,35 +1,50 @@
-# LIB_PRINT  定义的变量, 变量里放置 print.cpp
-SET(LIBPRINT_SRC print.cpp)
-# 生成 lib 的名字叫 print ; 最终产生的  文件是  libprint.so
-# SHARED 共享库 ;如果是静态库 那么 STATIC
-# ${LIB_PRINT} 读取  LIB_PRINT变量  里放置 print.cpp 
+# # LIB_PRINT  定义的变量, 变量里放置 print.cpp
+# SET(LIBPRINT_SRC print.cpp)
+# # 生成 lib 的名字叫 print ; 最终产生的  文件是  libprint.so
+# # SHARED 共享库 ;如果是静态库 那么 STATIC
+# # ${LIB_PRINT} 读取  LIB_PRINT变量  里放置 print.cpp 
+# # ADD_LIBRARY(print SHARED ${LIBPRINT_SRC})
+
+
+# # 生成动静态库
+# # 生成静态库
+# ADD_LIBRARY(print_static STATIC ${LIBPRINT_SRC})
+# # 设置静态库的输出名称
+# SET_TARGET_PROPERTIES(print_static PROPERTIES OUTPUT_NAME "print")
+# # cmake 在构建一个新的 target 时  会清理掉其他用这个名字的库 因为在构建 libprint.dll 时 会清理 
+# SET_TARGET_PROPERTIES(print_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+
+# # 生成动态库
 # ADD_LIBRARY(print SHARED ${LIBPRINT_SRC})
+# # 设置动态库的输出名称
+# SET_TARGET_PROPERTIES(print PROPERTIES OUTPUT_NAME "print")
+# SET_TARGET_PROPERTIES(print PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
-# 生成动静态库
-# 生成静态库
-ADD_LIBRARY(print_static STATIC ${LIBPRINT_SRC})
-# 设置静态库的输出名称
-SET_TARGET_PROPERTIES(print_static PROPERTIES OUTPUT_NAME "print")
-# cmake 在构建一个新的 target 时  会清理掉其他用这个名字的库 因为在构建 libprint.dll 时 会清理 
-SET_TARGET_PROPERTIES(print_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+# #修改版本号
+# # SET_TARGET_PROPERTIES(print PROPERTIES VERSION 1.2 SOVERSION 1)
 
-# 生成动态库
-ADD_LIBRARY(print SHARED ${LIBPRINT_SRC})
-# 设置动态库的输出名称
-SET_TARGET_PROPERTIES(print PROPERTIES OUTPUT_NAME "print")
-SET_TARGET_PROPERTIES(print PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+# # 安装头文件
+# # 文件放置在 该目录下
+# # INSTALL(FILES print.h DESTINATION include/print)
+# # # 二进制 静态库 动态库 安装都用 TARGETS
+# # INSTALL(TARGETS print print_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
 
 
-#修改版本号
-# SET_TARGET_PROPERTIES(print PROPERTIES VERSION 1.2 SOVERSION 1)
+# # ADD_LIBRARY(print print.h)
 
-# 安装头文件
-# 文件放置在 该目录下
-INSTALL(FILES print.h DESTINATION include/print)
-# 二进制 静态库 动态库 安装都用 TARGETS
-INSTALL(TARGETS print print_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+add_library(print "")
+
+target_sources(print 
+PUBLIC
+    print.hpp 
+PRIVATE
+    print.cpp
+)
 
 
-# ADD_LIBRARY(print print.h)
+target_include_directories(print
+PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 

@@ -1,0 +1,15 @@
+
+# 生成静态库
+ADD_LIBRARY(evolution "")
+
+target_sources(evolution 
+PRIVATE
+    evolution.cpp
+PUBLIC
+    evolution.hpp
+)
+
+target_include_directories(evolution
+PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
