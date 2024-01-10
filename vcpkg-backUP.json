@@ -1,0 +1,9 @@
+{
+    "name": "mdf",
+    "version": "1.0.0",
+    "description": "mdf cmake vcpkg 的mcu 开发工程",
+    "dependencies":[],
+    "license": "ISC",
+    "builtin-baseline": "1.0.0",
+    "overrides":[]
+}

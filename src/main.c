@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "../lib/print.h"
+// #include "../lib/print.h"
 // #include <print.h>
-#include "../build/config.h"
+// #include "../build/config.h"
 
 int main()
 {
