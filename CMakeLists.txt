@@ -1,9 +1,45 @@
 #CMakeLists.txt
 # cmake最低版本需求，不加入此行会受到警告信息
 cmake_minimum_required(VERSION 3.28.1)
+
+       
+
+
+
 # 项目名称，同时会自动生成 PROJECT_NAME 变量，
 # 使用${PROJECT_NAME} 即可访问到 Microcontroller-development-framework。
 project(Mdf VERSION 1.0.1)
 message(STATUS "${PROJECT_NAME} 项目已创建")
 
+
+
+
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+    message(STATUS "Running on Linux操作系统")
+    # 在这里添加适用于Linux的操作系统的特定配置  
+elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")  
+    message(STATUS "Running on Windows操作系统 -------------------------")  
+    # 在这里添加适用于Windows的操作系统的特定配置  
+elseif(CMAKE_SYSTEM_NAME MATCHES "Darwin")  
+    message(STATUS "Running on macOS/iOS操作系统")
+    # 在这里添加适用于macOS/iOS的操作系统的特定配置
+    set(VCPKG_ROOT "/usr/local/vcpkg") # 手动设置到你的vcpkg根目录
+else()  
+    message(STATUS "Running on an unknown operating system")  
+    # 在这里添加适用于其他操作系统的通用配置  
+endif()
+
+
+
+set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+message(STATUS "${CMAKE_TOOLCHAIN_FILE} CMAKE_TOOLCHAIN_FILE")
+
+
+
+ADD_EXECUTABLE(mdf main.cpp)
+
+# message(STATUS "${VCPKG_ROOT} VCPKG_ROOT")
+
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(mdf PRIVATE fmt::fmt)
 
