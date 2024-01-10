@@ -48,3 +48,4 @@ configure_file(
 
 # 链接src
 ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(lib)
