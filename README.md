@@ -8,7 +8,7 @@ Microcontroller development framework
 
 
 
-#####
+##### ------ 工程目录结构 ------ 
 .temp      自定义文件夹 用于存一些备份信息
 .vscode    vscode 配置文件
 
@@ -31,7 +31,7 @@ CMakeLists.txt  cmake 配置文件
 .gitignore      git 忽略文件
 doc             文档
  
-
+### --- 编译 命令 -----
 ### win 编译
 ./build
 cmake ..  -G "MinGW Makefiles"
@@ -56,24 +56,16 @@ cmake ..
 cmake --build . 
 
 
+### --- 编译 命令 ----- end
 
 
 
-#### 
-
-/usr/local/vcpkg
-# 下面这个 不好用 暂存
-cmake -B ./build -S . -DCMAKE_TOOLCHAIN_FILE="[vcpkg-root]/scripts/buildsystems/vcpkg.cmake"
-
-
-# vcpkg 下载 依赖包的命令
-vcpkg install library_name
 
 
 
 
 ###### 解决问题的记录 ########
-###### mac
+###### mac  #####
 
 这个版本中  
 1、安装了 vcpkg 放到了   /usr/local/vspkg 目录下; 修改了 vcpkg 下 bootstrap-vcpkg.sh 因为 vspkg-macOs 无法下载下来；然后是在网上找了 vspkg-macOs  资源 修改 .sh内的判断 如果下载 vspkg-macOs 那么直接跳过
@@ -89,3 +81,25 @@ vcpkg install library_name
 7、 shift+commad/ctrl +p 搜索 ：C/C++ 配置 生成 c_cpp_properties.json
 8、 
 
+###### win  #####
+
+
+###### linux  #####
+
+
+#### 解决问题的记录 end ######
+
+
+
+
+
+
+#### 
+
+/usr/local/vcpkg
+# 下面这个 不好用 暂存
+cmake -B ./build -S . -DCMAKE_TOOLCHAIN_FILE="[vcpkg-root]/scripts/buildsystems/vcpkg.cmake"
+
+
+# vcpkg 下载 依赖包的命令
+vcpkg install library_name
