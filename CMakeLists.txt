@@ -35,11 +35,16 @@ set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 message(STATUS "${CMAKE_TOOLCHAIN_FILE} CMAKE_TOOLCHAIN_FILE")
 
 
+# configure_file 
+configure_file(
+    "${PROJECT_SOURCE_DIR}/config.h.in"
+    "${PROJECT_BINARY_DIR}/config.h"
+)
 
-ADD_EXECUTABLE(mdf main.cpp)
+
 
 # message(STATUS "${VCPKG_ROOT} VCPKG_ROOT")
 
-find_package(fmt CONFIG REQUIRED)
-target_link_libraries(mdf PRIVATE fmt::fmt)
 
+# 链接src
+ADD_SUBDIRECTORY(src)
