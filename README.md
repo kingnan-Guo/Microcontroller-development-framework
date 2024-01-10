@@ -1,22 +1,36 @@
-# Microcontroller-development-framework
-gcc/xcode/VisualStudio +  cmake +  vcpkg  Microcontroller development framework
+# version V1.0.2
+这个版本要搭建工程目录  main.cpp/main.c 要放在 src 中
+
 # Microcontroller-development-framework
 gcc/xcode/VisualStudio +  cmake +  vcpkg  
 Microcontroller development framework
 
-#####
-include     用于存放.h/.hpp的头文件
-bin         用干存放编译输出的可执行文件
-build       为工程编译路径
-extralib    用于存放第三方库的源码文件
-lib         用于存放.a/.so的库文件
-modules     用干存放功能模块的代码文件
-resource    用干存放图片等资源文件
-src         用于存放main源码文件
-Drivers     
-compile     用于放置 交叉编译的 依赖文件
-device      设备 文件
 
+
+
+#####
+.temp      自定义文件夹 用于存一些备份信息
+.vscode    vscode 配置文件
+
+
+include         用于存放.h/.hpp的头文件
+bin             用干存放编译输出的可执行文件
+build           为工程编译路径
+extralib        用于存放第三方库的源码文件
+lib             用于存放.a/.so的库文件
+modules         用干存放功能模块的代码文件
+resource        用干存放图片等资源文件
+src             用于存放main源码文件
+Drivers     
+compile         用于放置 交叉编译的 依赖文件
+device          设备 文件
+vcpkg.json      vcpkg 配置文件
+config.h.in     一些固定的变量会存到这里 ; 可以 用于存放 交叉编译的 配置文件
+run.sh          运行脚本
+CMakeLists.txt  cmake 配置文件
+.gitignore      git 忽略文件
+doc             文档
+ 
 
 ### win 编译
 ./build
@@ -37,7 +51,7 @@ cmake --install .
 ### linux 编译
 
 ### Mac 编译
-
+rm -rf *
 cmake ..
 cmake --build . 
 
@@ -60,7 +74,7 @@ vcpkg install library_name
 
 ###### mac
 
-这个版本中 
+这个版本中  
 1、安装了 vcpkg 放到了   /usr/local/vspkg 目录下
 <!-- 2、安装了 cmake 放到了   /usr/local/vspkg/scripts/buildsystems 目录下 -->
 2、brew 安装了  pkg-config : brew install pkg-config
