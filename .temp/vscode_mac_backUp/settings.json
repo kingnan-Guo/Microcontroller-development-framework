@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "ostream": "cpp",
+        "print.h": "c",
+        "iostream": "cpp",
+        "format": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
