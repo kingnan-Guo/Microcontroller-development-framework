@@ -30,6 +30,7 @@ run.sh          运行脚本
 CMakeLists.txt  cmake 配置文件
 .gitignore      git 忽略文件
 doc             文档
+.binarycache    共享编译好的依赖库  内部存放 .zip 文件; 目的解压就可以用
  
 ### --- 编译 命令 -----
 ### win 编译
@@ -100,6 +101,9 @@ cmake --build .
 # 下面这个 不好用 暂存
 cmake -B ./build -S . -DCMAKE_TOOLCHAIN_FILE="[vcpkg-root]/scripts/buildsystems/vcpkg.cmake"
 
-
-# vcpkg 下载 依赖包的命令
+# vcpkg 命令
+#  下载 依赖包的命令
 vcpkg install library_name
+
+# 查看历史版本 的 命令  
+vcpkg x-history library_name
