@@ -42,3 +42,26 @@ cmake --build .
 
 ####
 cmake -B ./build -S . -DCMAKE_TOOLCHAIN_FILE="[vcpkg-root]/scripts/buildsystems/vcpkg.cmake"
+
+
+
+
+
+
+
+####
+#github 代理
+git config --global url.https://hub.fastgit.xyz/.insteadof=https://github.com/
+git config --global --unset url.https://hub.fastgit.xyz/.insteadof=https://github.com/
+git config --global --unset url.https://ghproxy.com/https://github.com.insteadof
+git config --global --unset url.https://hub.fastgit.xyz/.insteadof
+git config --global --unset  url.https://github.com.cnpmjs.org.insteadof
+
+
+
+
+###
+添加mac vcpkg 环境变量
+vim .bash_profile 
+source .bash_profile
+export PATH=/usr/local/vcpkg:$PATH
