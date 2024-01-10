@@ -25,7 +25,7 @@ Drivers
 compile         用于放置 交叉编译的 依赖文件
 device          设备 文件
 vcpkg.json      vcpkg 配置文件
-config.h.in     一些固定的变量会存到这里 ; 可以 用于存放 交叉编译的 配置文件
+config.h.in     一些固定的变量会存到这里 ; 会在 build 文件夹下 生成 config.h ; 可以 用于存放 交叉编译的 配置文件
 run.sh          运行脚本
 CMakeLists.txt  cmake 配置文件
 .gitignore      git 忽略文件
