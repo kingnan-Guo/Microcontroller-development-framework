@@ -13,7 +13,7 @@ PUBLIC
     ${PROJECT_BINARY_DIR}
     ${PROJECT_BINARY_DIR}/lib
     ${PROJECT_SOURCE_DIR}/lib
-    ${EXTRA_INCLUDES}
+    # ${EXTRA_INCLUDES}
 )
 
 add_subdirectory(evolution)
@@ -22,6 +22,7 @@ PUBLIC
     evolution
     print
     ${EXTRA_LIBS}
+    mdf_compiler_flags
 )
 
 

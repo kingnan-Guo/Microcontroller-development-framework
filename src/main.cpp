@@ -23,7 +23,9 @@ int main(){
     #ifdef TEST_OPTION
         other();
     #endif
-
+        // 打印 c++ 版本信息
+        std::cout << "__cpluspluse" << __cplusplus << std::endl;
+    
 
     // fmt::print("Hello, world!");
     return 0;

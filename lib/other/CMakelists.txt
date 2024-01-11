@@ -14,3 +14,10 @@ target_include_directories(other
 PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+
+# 链接 mdf_compiler_flags 与 ōther  相当于将 mdf_compiler_flags 设置的 cxx_std_11 绑定给 other
+target_link_libraries(other
+PUBLIC
+    mdf_compiler_flags
+)
