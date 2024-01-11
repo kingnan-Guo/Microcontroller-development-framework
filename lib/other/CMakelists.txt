@@ -1,0 +1,16 @@
+SET(LIBOTHER_CPP other.cpp)
+SET(LIBOTHER_HPP other.hpp)
+
+add_library(other)
+
+target_sources(other 
+PUBLIC
+    ${LIBOTHER_CPP}
+PRIVATE
+    ${LIBOTHER_HPP}
+)
+
+target_include_directories(other
+PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)

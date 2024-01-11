@@ -41,7 +41,16 @@ configure_file(
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
+# 使用 option 创建 一个变量 TEST_OPTION 默认值 ON/OFF TRUE/FALSE
+option(TEST_OPTION "Use provided math" ON)
+message(STATUS "TEST_OPTION is ${TEST_OPTION}")
 
+if(TEST_OPTION)
+    message(STATUS "可以通过 命令配置 TEST_OPTION 为  ON/OFF")
+    # APPEND 是个列表  ； EXTA_LIBS 追加 后面是库的名称
+    list(APPEND EXTRA_LIBS other)
+    list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/lib/other")
+endif()
 
 # message(STATUS "${VCPKG_ROOT} VCPKG_ROOT")
 

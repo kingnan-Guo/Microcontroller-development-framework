@@ -13,6 +13,7 @@ PUBLIC
     ${PROJECT_BINARY_DIR}
     ${PROJECT_BINARY_DIR}/lib
     ${PROJECT_SOURCE_DIR}/lib
+    ${EXTRA_INCLUDES}
 )
 
 add_subdirectory(evolution)
@@ -20,6 +21,7 @@ target_link_libraries(mdf
 PUBLIC
     evolution
     print
+    ${EXTRA_LIBS}
 )
 
 

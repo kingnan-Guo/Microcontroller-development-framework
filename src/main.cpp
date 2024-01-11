@@ -1,6 +1,13 @@
 #include <iostream>
 // #include <fmt/format.h>
 #include <print.hpp>
+
+#include "config.h"
+
+#ifdef TEST_OPTION
+    #include <other.hpp>
+#endif
+
 // #include <evolution.h>
 extern "C" {
     #include <evolution.h>
@@ -12,6 +19,12 @@ int main(){
     std::cout << "Hello, world!" << std::endl;
     print();
     evo_fn();
+
+    #ifdef TEST_OPTION
+        other();
+    #endif
+
+
     // fmt::print("Hello, world!");
     return 0;
 }
