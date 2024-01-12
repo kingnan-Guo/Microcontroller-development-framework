@@ -4,5 +4,5 @@
 #define PROJECT_SOURCE_DIR      "${PROJECT_SOURCE_DIR}"   
 #define PROJECT_BINARY_DIR      "${PROJECT_BINARY_DIR}"
 
-#define TEST_OPTION              ON//${TEST_OPTION}
+#cmakedefine TEST_OPTION              ${TEST_OPTION}
 #cmakedefine USE_ABC

@@ -11,9 +11,9 @@ cmake_minimum_required(VERSION 3.28.1)
 project(Mdf VERSION 1.0.1)
 message(STATUS "${PROJECT_NAME} 项目已创建")
 
-
-
-
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}") # 动态库文件打包后位置  .dll .exe 
+SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}") # 静态库文件打包后的位置 .a .lib 
+SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}") # linux 下的 .so  文件  mac  环境下 .dylib 文件
 
 # 创建一个 interface 虚拟的 库 mdf_compiler_flags
 # 添加编译特性 cxx_std_11 到 mdf_compiler_flags
@@ -43,14 +43,13 @@ set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 message(STATUS "${CMAKE_TOOLCHAIN_FILE} CMAKE_TOOLCHAIN_FILE")
 
 
-# configure_file 
-configure_file(
-    "${PROJECT_SOURCE_DIR}/config.h.in"
-    "${PROJECT_BINARY_DIR}/config.h"
-)
+
+
+
 
 # 使用 option 创建 一个变量 TEST_OPTION 默认值 ON/OFF TRUE/FALSE
 option(TEST_OPTION "Use provided math" ON)
+# SET(TEST_OPTION TRUE)
 message(STATUS "TEST_OPTION is ${TEST_OPTION}")
 
 if(TEST_OPTION)
@@ -63,13 +62,21 @@ endif()
 
 # message(STATUS "${VCPKG_ROOT} VCPKG_ROOT")
 
+# configure_file 
+configure_file(
+    "${PROJECT_SOURCE_DIR}/config.h.in"
+    "${PROJECT_BINARY_DIR}/config.h"
+)
+
+
+
+SET(FREE_RTOS_DIR "${PROJECT_SOURCE_DIR}/extralib/freeRtos")
+find_library(FreeRTOS FREE_RTOS_DIR)
+
+
 
 # 链接src
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(lib)
 ADD_SUBDIRECTORY(extralib)
-
-
-
-
 

@@ -1,7 +1,7 @@
 SET(LIBPRINT_CPP print.cpp)
 SET(LIBPRINT_HPP print.hpp)
 
-add_library(print)
+add_library(print SHARED print.cpp)
 
 target_sources(print 
 PUBLIC
