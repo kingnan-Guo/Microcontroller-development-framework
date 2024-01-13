@@ -23,7 +23,7 @@ PUBLIC
     print
     ${EXTRA_LIBS}
     mdf_compiler_flags
-    freertos_kernel
+    # freertos_kernel
 )
 
 
