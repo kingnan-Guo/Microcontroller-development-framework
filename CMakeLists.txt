@@ -28,10 +28,13 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux")
 elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")  
     message(STATUS "Running on Windows操作系统 -------------------------")  
     # 在这里添加适用于Windows的操作系统的特定配置  
+    set(FREERTOS_PORT "MSVC_MINGW")
+
 elseif(CMAKE_SYSTEM_NAME MATCHES "Darwin")  
     message(STATUS "Running on macOS/iOS操作系统")
     # 在这里添加适用于macOS/iOS的操作系统的特定配置
     set(VCPKG_ROOT "/usr/local/vcpkg") # 手动设置到你的vcpkg根目录
+    set(FREERTOS_PORT "GCC_POSIX")
 else()  
     message(STATUS "Running on an unknown operating system")  
     # 在这里添加适用于其他操作系统的通用配置  
@@ -82,7 +85,7 @@ configure_file(
 # target_compile_definitions(freertos_config PUBLIC projCOVERAGE_TEST=0)
 
 add_library(freertos_config INTERFACE)
-set(FREERTOS_PORT "MSVC_MINGW")
+
 # 添加FreeRTOSConfig.h的头文件路径
 # target_include_directories(freertos_config SYSTEM INTERFACE include)
 target_include_directories(freertos_config
