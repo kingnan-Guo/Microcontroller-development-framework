@@ -83,3 +83,6 @@ NVIC value of 255. */
 
 #endif /* FREERTOS_CONFIG_H */
 
+
+#define configSTACK_ALLOCATION_FROM_SEPARATE_HEAP 1
+#define configUSE_MALLOC_FAILED_HOOK 1
