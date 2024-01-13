@@ -70,9 +70,29 @@ configure_file(
 
 
 
-SET(FREE_RTOS_DIR "${PROJECT_SOURCE_DIR}/extralib/freeRtos")
-find_library(FreeRTOS FREE_RTOS_DIR)
+# SET(FreeRTOS_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS/include")
+# SET(FreeRTOS_DIRS "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS")
+# set(CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/extralib")
+# # set(CMAKE_FIND_ROOT_PATH ${PROJECT_SOURCE_DIR})
 
+# # find_library(FreeRTOS FREE_RTOS_DIR)
+# # find_package(FreeRTOS REQUIRED)
+# find_package(FreeRTOS REQUIRED PATHS ${FreeRTOS_INCLUDE_DIRS} ${FreeRTOS_DIRS})
+# target_include_directories(freertos_config SYSTEM INTERFACE ${FreeRTOS_INCLUDE_DIRS})
+# target_compile_definitions(freertos_config PUBLIC projCOVERAGE_TEST=0)
+
+add_library(freertos_config INTERFACE)
+set(FREERTOS_PORT "MSVC_MINGW")
+# 添加FreeRTOSConfig.h的头文件路径
+# target_include_directories(freertos_config SYSTEM INTERFACE include)
+target_include_directories(freertos_config
+INTERFACE
+    "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS"
+)
+
+
+# 设置编译定义 
+target_compile_definitions(freertos_config INTERFACE projCOVERAGE_TEST=0)
 
 
 # 链接src
