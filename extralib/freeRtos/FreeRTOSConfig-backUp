@@ -1,0 +1,88 @@
+#ifndef FREERTOS_CONFIG_H
+#define FREERTOS_CONFIG_H
+
+/* Use Pico SDK ISR handlers */
+#define vPortSVCHandler         isr_svcall
+#define xPortPendSVHandler      isr_pendsv
+#define xPortSysTickHandler     isr_systick
+
+#define configUSE_PREEMPTION                    1
+#define configUSE_PORT_OPTIMISED_TASK_SELECTION 0//使能它时任务优先级可以支持32级
+#define configUSE_TICKLESS_IDLE                 0//低功耗使能，置0系统节拍中断一直运行
+#define configCPU_CLOCK_HZ                      133000000//设置CPU频率133M,用于在port.c文件中进行时钟配置
+#define configTICK_RATE_HZ                      1000//设置FREERTOS系统时钟节拍频率HZ,系统滴答定时器的中断频率，设为1000则系统时钟节拍周期1ms，软件定时器的值必须是该周期的整数倍;pdMS_TO_TICKS()可以将毫秒转换为tick，前提是该宏小于1000
+#define configMAX_PRIORITIES                    5//设置任务优先级数量从0-该数-1,就绪列表数组大小，最大支持255，数值越大优先级越高
+#define configMINIMAL_STACK_SIZE                128//设置空闲任务的最小任务堆栈大小(字)
+#define configMAX_TASK_NAME_LEN                 16//设置任务名最大长度
+#define configUSE_16_BIT_TICKS                  0//1:8位存储事件组  0:24位存储事件组，*推荐：0
+#define configIDLE_SHOULD_YIELD                 1//空闲任务与处于同等优先级的其他用户任务的行为.为1时空闲任务会为同等优先级的用户任务让出cpu使用权
+#define configUSE_TASK_NOTIFICATIONS            1
+#define configTASK_NOTIFICATION_ARRAY_ENTRIES   3
+#define configUSE_MUTEXES                       1//使用互斥量
+#define configUSE_RECURSIVE_MUTEXES             1//使用递归互斥量
+#define configUSE_COUNTING_SEMAPHORES           1//使用计数信号量
+#define configQUEUE_REGISTRY_SIZE               10//设置可以注册的信号量和消息队列个数
+#define configUSE_QUEUE_SETS                    0//启用队列集
+#define configUSE_TIME_SLICING                  1//使能时，处于就绪态的多个相同优先级任务会以时间分片方式共享CPU
+#define configUSE_NEWLIB_REENTRANT              0
+#define configENABLE_BACKWARD_COMPATIBILITY     0//支持RTOS8.0之前的数据类型
+#define configNUM_THREAD_LOCAL_STORAGE_POINTERS 5
+#define configSTACK_DEPTH_TYPE                  uint16_t
+#define configMESSAGE_BUFFER_LENGTH_TYPE        size_t
+
+/* Memory allocation related definitions. */
+#define configSUPPORT_STATIC_ALLOCATION         0//SRAM静态分配任务栈和任务控制块的内存，需要用户自定义两个函数设定空任务和定时器任务的堆栈大小，建议使用动态
+#define configSUPPORT_DYNAMIC_ALLOCATION        1//SRAM动态分配任务栈和任务控制块的内存，分配到堆。堆在heap_x.c文件中定义.支持动态分配任务、队列、信号等
+#define configAPPLICATION_ALLOCATED_HEAP        1//配置为用户自行设置堆内存而不是编译器自动分配，设置configTOTAL_HEAP_SIZE
+#define configTOTAL_HEAP_SIZE                   ((size_t)(36*1024))//定义堆内存大小
+/* Hook function related definitions. */
+#define configUSE_IDLE_HOOK                     0
+#define configUSE_TICK_HOOK                     0
+#define configCHECK_FOR_STACK_OVERFLOW          0//检测任务栈溢出
+#define configUSE_MALLOC_FAILED_HOOK            0
+#define configUSE_DAEMON_TASK_STARTUP_HOOK      0
+
+/* Run time and task stats gathering related definitions. */
+#define configGENERATE_RUN_TIME_STATS           0//开启时间统计功能,需要再定义portCONFIGURE_TIMER_FOR_RUN_TIME_STATUS()等宏
+#define configUSE_TRACE_FACILITY                0
+#define configUSE_STATS_FORMATTING_FUNCTIONS    0
+
+/* Co-routine related definitions. */
+#define configUSE_CO_ROUTINES                   0//为1时可以启动协程
+#define configMAX_CO_ROUTINE_PRIORITIES         1//协程的最大优先级数,协程优先级可以从0到该值-1
+
+/* Software timer related definitions. */
+#define configUSE_TIMERS                        1//使能了定时器,会自动创建定时器任务，ISR中设置事件需要，软件定时器需要
+#define configTIMER_TASK_PRIORITY               4//软件定时器 任务 优先级，应当设置为最高（原来是3）,守护进程的优先级
+#define configTIMER_QUEUE_LENGTH                10//软件定时器命令队列长度,定时器通信不能直接访问，被API封装
+#define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE//定时器任务堆栈大小128
+
+/* Define to trap errors during development. */
+#define configASSERT( x )//定义断言函数,具体内容需要用户自定义
+
+/* Optional functions - most linkers will remove unused functions anyway. */
+//使能或这解除使能对应的API函数
+#define INCLUDE_vTaskPrioritySet                1
+#define INCLUDE_uxTaskPriorityGet               1
+#define INCLUDE_vTaskDelete                     1//启用任务删除函数
+#define INCLUDE_vTaskSuspend                    1//启用任务挂起功能函数和任务恢复函数vTaskSuspend()和vTaskResume，会使得信号和消息的阻塞等待时间可以为无穷大portMAX_Delay
+#define INCLUDE_xResumeFromISR                  1
+#define INCLUDE_vTaskDelayUntil                 1//启用绝对阻塞延时函数
+#define INCLUDE_vTaskDelay                      1//启用相对阻塞延时函数
+#define INCLUDE_xTaskGetSchedulerState          1
+#define INCLUDE_xTaskGetCurrentTaskHandle       1
+#define INCLUDE_uxTaskGetStackHighWaterMark     0
+#define INCLUDE_xTaskGetIdleTaskHandle          0
+#define INCLUDE_eTaskGetState                   0
+#define INCLUDE_xEventGroupSetBitFromISR        1
+#define INCLUDE_xTimerPendFunctionCall          1//原来是0;支持xEventGroupSetBitsFromISR()事件组中断置位函数
+#define INCLUDE_xTaskAbortDelay                 0
+#define INCLUDE_xTaskGetHandle                  0
+#define INCLUDE_xTaskResumeFromISR              1//在中断中恢复挂起任务
+
+/* A header file that defines trace macro can be included here. */
+
+#endif /* FREERTOS_CONFIG_H */
+
+
+

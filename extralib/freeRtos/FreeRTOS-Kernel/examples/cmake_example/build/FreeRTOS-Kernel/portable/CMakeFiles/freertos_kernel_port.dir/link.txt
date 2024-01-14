@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libfreertos_kernel_port.a CMakeFiles/freertos_kernel_port.dir/ThirdParty/GCC/Posix/port.c.o CMakeFiles/freertos_kernel_port.dir/ThirdParty/GCC/Posix/utils/wait_for_event.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libfreertos_kernel_port.a
