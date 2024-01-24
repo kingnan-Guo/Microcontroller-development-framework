@@ -107,3 +107,13 @@ vcpkg install library_name
 
 # 查看历史版本 的 命令  
 vcpkg x-history library_name
+
+
+
+
+xtensa-lx106-elf/bin/ld: cannot find crt1-sim.o: No such file or directory
+xtensa-lx106-elf/bin/ld: cannot find _vectors.o: No such file or directory
+xtensa-lx106-elf/bin/ld: cannot find -lsim
+xtensa-lx106-elf/bin/ld: cannot find -lhandlers-sim
+xtensa-lx106-elf/bin/ld: cannot find -lhal
+
