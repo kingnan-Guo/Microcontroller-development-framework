@@ -17,15 +17,13 @@ SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}") # linux 下的 .so  
 
 # 创建一个 interface 虚拟的 库 mdf_compiler_flags
 # 添加编译特性 cxx_std_11 到 mdf_compiler_flags
-# add_library(mdf_compiler_flags INTERFACE)
-# target_compile_features(mdf_compiler_flags INTERFACE cxx_std_11)
 add_library(mdf_compiler_flags INTERFACE)
 target_compile_features(mdf_compiler_flags INTERFACE cxx_std_11)
 
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
     message(STATUS "Running on Linux操作系统")
     # 在这里添加适用于Linux的操作系统的特定配置  
-elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")  
+elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
     message(STATUS "Running on Windows操作系统 -------------------------")  
     # 在这里添加适用于Windows的操作系统的特定配置  
     set(FREERTOS_PORT "MSVC_MINGW")
@@ -59,43 +57,17 @@ if(TEST_OPTION)
     message(STATUS "可以通过 命令配置 TEST_OPTION 为  ON/OFF")
     # APPEND 是个列表  ； EXTA_LIBS 追加 后面是库的名称
     list(APPEND EXTRA_LIBS other)
-    # 追加 后面是头文件的名称; 但是 other 已经在 自己的CMakeLists 中配置 了 target_include_directories(other PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) 所以不需要了
-    # list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/lib/other")
+
 endif()
 
-# message(STATUS "${VCPKG_ROOT} VCPKG_ROOT")
 
-# configure_file 
+# configure_file 复制文件到  build 的 /config.h
 configure_file(
     "${PROJECT_SOURCE_DIR}/config.h.in"
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
 
-
-# SET(FreeRTOS_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS/include")
-# SET(FreeRTOS_DIRS "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS")
-# set(CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/extralib")
-# # set(CMAKE_FIND_ROOT_PATH ${PROJECT_SOURCE_DIR})
-
-# # find_library(FreeRTOS FREE_RTOS_DIR)
-# # find_package(FreeRTOS REQUIRED)
-# find_package(FreeRTOS REQUIRED PATHS ${FreeRTOS_INCLUDE_DIRS} ${FreeRTOS_DIRS})
-# target_include_directories(freertos_config SYSTEM INTERFACE ${FreeRTOS_INCLUDE_DIRS})
-# target_compile_definitions(freertos_config PUBLIC projCOVERAGE_TEST=0)
-
-# add_library(freertos_config INTERFACE)
-
-# 添加FreeRTOSConfig.h的头文件路径
-# target_include_directories(freertos_config SYSTEM INTERFACE include)
-# target_include_directories(freertos_config
-# INTERFACE
-#     "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS"
-# )
-
-
-# 设置编译定义 
-# target_compile_definitions(freertos_config INTERFACE projCOVERAGE_TEST=0)
 
 
 # 链接src

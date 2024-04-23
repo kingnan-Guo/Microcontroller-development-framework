@@ -1,20 +1,16 @@
 #include <iostream>
-// #include <fmt/format.h>
-
-// #include <evolution.h>
-
+#include <print.hpp>
 extern "C" {
     #include <evolution.h>
-
 }
-
 
 
 
 int main(){
 
-
-    
+    print();
+    evo_fn();
+    //evo_fn();
     return 0;
 }
 

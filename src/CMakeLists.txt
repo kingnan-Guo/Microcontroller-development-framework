@@ -27,4 +27,5 @@ ADD_SUBDIRECTORY(evolution)
 
 target_link_libraries(main
     evolution
+    print
 )
