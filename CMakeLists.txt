@@ -45,7 +45,7 @@ file(GLOB_RECURSE SOURCES "source/*.*" )
 
 
 
-add_executable(mdf ${SOURCES} ${static_SOURCES} ${lib_library})
+add_executable(mdf ${SOURCES} ${static_SOURCES})
 
 
 
