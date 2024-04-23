@@ -1,5 +1,0 @@
-/Users/kingnan/Documents/github/Microcontroller-development-framework/cmake-build-debug/CMakeFiles/mdf.dir
-/Users/kingnan/Documents/github/Microcontroller-development-framework/cmake-build-debug/CMakeFiles/lib_other_SOURCES.dir
-/Users/kingnan/Documents/github/Microcontroller-development-framework/cmake-build-debug/CMakeFiles/lib_new_SOURCES.dir
-/Users/kingnan/Documents/github/Microcontroller-development-framework/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/kingnan/Documents/github/Microcontroller-development-framework/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -7,7 +7,7 @@ extern "C" {
 }
 
 int main() {
-    std::cout << "Hello, World! 2" << std::endl;
+    std::cout << "main function" << std::endl;
     print();
     evo_fn();
     other();
