@@ -1,5 +1,6 @@
 
 build/*
+cmake-build-debug/*
 
 # Editor directories and files
 .idea
