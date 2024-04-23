@@ -27,6 +27,4 @@ ADD_SUBDIRECTORY(evolution)
 
 target_link_libraries(main
     evolution
-    freertos_kernel
-    freertos_config
 )

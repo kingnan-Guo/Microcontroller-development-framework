@@ -1,5 +1,6 @@
-# version V1.0.2
-这个版本要搭建工程目录  main.cpp/main.c 要放在 src 中
+# version V1.1.0
+重新开始使用 cmake 搭建项目 添加 插件
+
 
 # Microcontroller-development-framework
 gcc/xcode/VisualStudio +  cmake +  vcpkg  

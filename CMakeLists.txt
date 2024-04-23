@@ -84,22 +84,22 @@ configure_file(
 # target_include_directories(freertos_config SYSTEM INTERFACE ${FreeRTOS_INCLUDE_DIRS})
 # target_compile_definitions(freertos_config PUBLIC projCOVERAGE_TEST=0)
 
-add_library(freertos_config INTERFACE)
+# add_library(freertos_config INTERFACE)
 
 # 添加FreeRTOSConfig.h的头文件路径
 # target_include_directories(freertos_config SYSTEM INTERFACE include)
-target_include_directories(freertos_config
-INTERFACE
-    "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS"
-)
+# target_include_directories(freertos_config
+# INTERFACE
+#     "${PROJECT_SOURCE_DIR}/extralib/FreeRTOS"
+# )
 
 
 # 设置编译定义 
-target_compile_definitions(freertos_config INTERFACE projCOVERAGE_TEST=0)
+# target_compile_definitions(freertos_config INTERFACE projCOVERAGE_TEST=0)
 
 
 # 链接src
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(lib)
-ADD_SUBDIRECTORY(extralib)
+# ADD_SUBDIRECTORY(extralib)
 
