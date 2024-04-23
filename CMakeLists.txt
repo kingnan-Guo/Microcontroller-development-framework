@@ -49,6 +49,8 @@ add_executable(mdf ${SOURCES} ${static_SOURCES})
 
 
 
+#======== 动态链接库相关 ======
+
 #file(GLOB_RECURSE lib_SOURCES "lib/*.*" )
 ## 添加动态库
 #add_library(lib_library SHARED ${lib_SOURCES})
