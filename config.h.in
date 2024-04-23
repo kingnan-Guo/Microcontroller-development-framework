@@ -1,0 +1,8 @@
+#define PROJECT_NAME            "${PROJECT_NAME}"
+#define CMAKE_TOOLCHAIN_FILE    "${CMAKE_TOOLCHAIN_FILE}"
+#define CMAKE_SYSTEM_NAME       "${CMAKE_SYSTEM_NAME}"
+#define PROJECT_SOURCE_DIR      "${PROJECT_SOURCE_DIR}"   
+#define PROJECT_BINARY_DIR      "${PROJECT_BINARY_DIR}"
+
+#cmakedefine TEST_OPTION              ${TEST_OPTION}
+#cmakedefine USE_ABC

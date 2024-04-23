@@ -1,0 +1,9 @@
+# ninja log v5
+1	78	1713888990333730723	CMakeFiles/mdf.dir/static/evolution/evolution.c.o	efe152e8b7de6774
+2	80	1713888990333729061	CMakeFiles/lib_new_SOURCES.dir/lib/new/new.c.o	a185891273cc4a82
+80	170	1713888990425861010	lib/liblib_new_SOURCES.dylib	7376ae69e5a38d6
+1	718	1713888990968107379	CMakeFiles/mdf.dir/static/print/print.cpp.o	fefeb7103ba50a34
+0	722	1713888990968105756	CMakeFiles/mdf.dir/source/main.cpp.o	77339894d53d99d9
+1	723	1713888990968140013	CMakeFiles/lib_other_SOURCES.dir/lib/other/other.cpp.o	ac6b730f63934ba6
+723	784	1713888991041968120	lib/liblib_other_SOURCES.dylib	5c1a80141482efc9
+784	843	1713888991100728020	mdf	633fc7189dd99cb7
