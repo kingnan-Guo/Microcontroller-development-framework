@@ -36,6 +36,10 @@ include_directories(
         source
         static/print
         static/evolution
+        static/point
+        static/point2
+        static/pointApplication
+        static/fileOpen
 )
 
 file(GLOB_RECURSE static_SOURCES "static/*.*" )

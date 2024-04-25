@@ -11,5 +11,5 @@
 //#include "print.hpp"
 void newPrint()
 {
- printf("Hello World new");
+ printf("Hello World new\n\r");
 }

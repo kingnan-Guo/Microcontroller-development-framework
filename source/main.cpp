@@ -4,6 +4,10 @@
 extern "C" {
     #include <evolution.h>
     #include <new.h>
+    #include <point.h>
+    #include <point2.h>
+    #include <pointApplication.h>
+    #include <fileOpen.h>
 }
 
 int main() {
@@ -12,5 +16,12 @@ int main() {
     evo_fn();
     other();
     newPrint();
+    point_fn();
+    point_fn2();
+
+
+
+    point_application_main();
+    fileOpenMain();
     return 0;
 }
