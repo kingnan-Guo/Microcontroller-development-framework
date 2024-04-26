@@ -8,6 +8,7 @@ extern "C" {
     #include <point2.h>
     #include <pointApplication.h>
     #include <fileOpen.h>
+    #include <transformToByte.h>
 }
 
 int main() {
@@ -23,5 +24,6 @@ int main() {
 
     point_application_main();
     fileOpenMain();
+    transformToByteMain();
     return 0;
 }

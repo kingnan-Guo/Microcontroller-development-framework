@@ -25,6 +25,7 @@ void readFile(void){
     fclose(f);
     printf("fileStr = %c\n",fileStr);
     printf(strs);
+    printf("\n");
 }
 
 void fileOpenMain(void){

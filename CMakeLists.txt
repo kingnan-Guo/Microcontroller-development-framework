@@ -40,6 +40,7 @@ include_directories(
         static/point2
         static/pointApplication
         static/fileOpen
+        static/transformToByte
 )
 
 file(GLOB_RECURSE static_SOURCES "static/*.*" )
